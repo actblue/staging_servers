@@ -23,5 +23,17 @@
 <template name="serversList">
   <h1>Servers</h1>
 
-  <input type="button" value="Create Server" />
+  {{#each server}}
+    <div class="server">
+      Server
+    </div>
+  {{else}}
+    <p>
+      No servers have been created yet.
+    </p>
+  {{/each}}
+
+  {{#if currentUser}}
+    <input type="button" value="Create Server" />
+  {{/if}}
 </template>
