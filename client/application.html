@@ -1,13 +1,27 @@
 <head>
-  <title>Playpen Servers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Staging Servers</title>
 </head>
 
 <body>
-  {{> serversList}}
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12 text-right">
+        {{> loginButtons align="right"}}
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span12">
+        {{> serversList}}
+      </div>
+    </div>
+  </div>
 </body>
 
 <template name="serversList">
   <h1>Servers</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+
+  <input type="button" value="Create Server" />
 </template>

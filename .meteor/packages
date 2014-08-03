@@ -5,4 +5,5 @@
 
 standard-app-packages
 accounts-ui
-accounts-github
+accounts-password
+bootstrap
