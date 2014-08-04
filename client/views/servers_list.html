@@ -1,7 +1,7 @@
 <template name="serversList">
   <h1>Servers</h1>
 
-  {{#each server}}
+  {{#each servers}}
     {{> server}}
   {{else}}
     <p>
@@ -10,6 +10,10 @@
   {{/each}}
 
   {{#if currentUser}}
-    <input type="button" value="New Server" class="btn new_server" />
+    <div class="row-fluid">
+      <div class="span12 new_server">
+        <input type="button" value="New Server" class="btn new_server" />
+      </div>
+    </div>
   {{/if}}
 </template>

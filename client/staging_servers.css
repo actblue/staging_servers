@@ -12,3 +12,13 @@ h1 {
   opacity: .4;
   z-index: 1;
 }
+
+.new_server {
+  margin-top: 1em;
+}
+
+.server {
+  border: 1px solid #444;
+  margin-bottom: 1em;
+  padding: 0.2em 1em 1.2em;
+}

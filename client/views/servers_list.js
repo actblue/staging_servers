@@ -1,6 +1,8 @@
-/*global Meteor, Template, Session */
+/*global Meteor, Template, Session, Servers */
 
-Meteor.subscribe('servers');
+Template.serversList.servers = function() {
+  return Servers.find({});
+};
 
 Template.serversList.events({
   'click .new_server': function() {

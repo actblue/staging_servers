@@ -1,7 +1,16 @@
 <template name="server">
-  <div class="server">
-    <div class="name">
-      {{name}}
-    </div>
+
+  <div class="server span5">
+    <a href="{{fullUrl}}">
+      <h2 class="name">
+        {{name}}
+      </h2>
+    </a>
+    <a href="{{fullUrl}}">
+      <div class="url">
+        {{url}}
+      </div>
+    </a>
   </div>
+
 </template>
