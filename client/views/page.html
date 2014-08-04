@@ -1,0 +1,19 @@
+<template name="page">
+  {{#if showCreateServerDialog}}
+    {{> createServerDialog}}
+  {{/if}}
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12 text-right">
+        {{> loginButtons align="right"}}
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span12">
+        {{> serversList}}
+      </div>
+    </div>
+  </div>
+</template>

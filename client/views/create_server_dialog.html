@@ -1,0 +1,26 @@
+<template name="createServerDialog">
+  <div class="mask"> </div>
+  <div class="modal">
+    <div class="modal-header">
+      <button type="button" class="close cancel" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>New Server</h3>
+    </div>
+
+    <div class="modal-body">
+      {{#if error}}
+        <div class="alert alert-error">{{error}}</div>
+      {{/if}}
+
+      <label for="name">Name</label>
+      <input type="text" name="name" class="name">
+
+      <label for="url">URL</label>
+      <input type="text" name="url" class="url">
+    </div>
+
+    <div class="modal-footer">
+      <a href="#" class="btn cancel">Cancel</a>
+      <a href="#" class="btn btn-primary save">Create Server</a>
+    </div>
+  </div>
+</template>
