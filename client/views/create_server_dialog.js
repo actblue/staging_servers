@@ -1,5 +1,9 @@
 /*global Meteor, Template, Session */
 
+Template.createServerDialog.error = function () {
+  return Session.get('createServerError');
+};
+
 Template.createServerDialog.events({
   'click .save': function (event, template) {
     var name = template.find('.name').value;
