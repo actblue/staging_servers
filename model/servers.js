@@ -11,8 +11,9 @@ Servers.allow({
     return false;
   },
 
-  remove: function() {
-    return false;
+  remove: function(userId, server) {
+    // You can only remove servers if you are logged in
+    return !!userId;
   }
 });
 

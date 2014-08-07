@@ -7,7 +7,7 @@ Template.serversList.servers = function() {
 Template.serversList.events({
   'click .new_server': function() {
     if (! Meteor.userId()) {
-      // must be logged in to create events
+      // must be logged in to create servers
       return;
     }
     openCreateServerDialog();

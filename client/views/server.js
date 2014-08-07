@@ -1,4 +1,4 @@
-/*global Template */
+/*global Template, Servers, window */
 
 Template.server.helpers({
   fullUrl: function () {
@@ -9,5 +9,14 @@ Template.server.helpers({
         return 'http://' + this.url;
       }
     }
+  }
+});
+
+Template.server.events({
+  'click .delete': function() {
+    if (window.confirm('Are you sure you want to delete this server?')) {
+      Servers.remove(this._id);
+    }
+    return false;
   }
 });
