@@ -1,16 +1,27 @@
 <template name="server">
 
-  <div class="server span5">
-    <a href="{{fullUrl}}">
-      <h2 class="name">
-        {{name}}
-      </h2>
-    </a>
-    <a href="{{fullUrl}}">
-      <div class="url">
-        {{url}}
+  <div class="row-fluid">
+    <div class="server span10 offset1">
+      <div class="row-fluid">
+
+        <dt class="span4">
+          <a href="{{fullUrl}}">
+            <h2 class="name">
+              {{name}}
+            </h2>
+          </a>
+          <a href="{{fullUrl}}">
+            <div class="url">
+              {{url}}
+            </div>
+          </a>
+        </dt>
+
+        <dd class="span8">
+        </dd>
+
       </div>
-    </a>
+    </div>
   </div>
 
 </template>
