@@ -9,6 +9,10 @@ Template.server.helpers({
         return 'http://' + this.url;
       }
     }
+  },
+
+  isInUseClass: function() {
+    return this.isInUse ? 'in-use' : 'not-in-use';
   }
 });
 
@@ -18,5 +22,13 @@ Template.server.events({
       Servers.remove(this._id);
     }
     return false;
+  },
+
+  'click .taking': function() {
+    Meteor.call('takeIt', this._id);
+  },
+
+  'click .releasing': function() {
+    Meteor.call('releaseIt', this._id);
   }
 });

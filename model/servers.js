@@ -21,6 +21,10 @@ Meteor.methods({
   // options should include: name, url
   createServer: function(options) {
     console.log('createServer');
+
+    if (! this.userId)
+      throw new Meteor.Error(403, 'You must be logged in');
+
     check(options, {
       name: NonEmptyString,
       url: NonEmptyString
@@ -28,9 +32,24 @@ Meteor.methods({
 
     var id = Servers.insert({
       name: options.name,
-      url: options.url
+      url: options.url,
+      isInUse: false
     });
     return id;
+  },
+
+  takeIt: function(serverId) {
+    if (! this.userId)
+      throw new Meteor.Error(403, 'You must be logged in');
+
+    Servers.update(serverId, {$set: {isInUse: true}})
+  },
+
+  releaseIt: function(serverId) {
+    if (! this.userId)
+      throw new Meteor.Error(403, 'You must be logged in');
+
+    Servers.update(serverId, {$set: {isInUse: false}})
   }
 });
 

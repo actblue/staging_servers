@@ -1,7 +1,7 @@
 /*global Meteor, Template, Session, Servers */
 
 Template.serversList.servers = function() {
-  return Servers.find({});
+  return Servers.find({}, {sort: {name: 1}});
 };
 
 Template.serversList.events({

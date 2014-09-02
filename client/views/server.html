@@ -1,7 +1,7 @@
 <template name="server">
 
   <div class="row-fluid">
-    <div class="server span12">
+    <div class="server span12 {{isInUseClass}}">
       <div class="row-fluid">
 
         <dt class="span4">
@@ -20,6 +20,17 @@
         </dt>
 
         <dd class="span8">
+          {{#if currentUser}}
+            {{#if isInUse}}
+              <input type="button" name="releasing"
+                value="Releasing it"
+                class="btn btn-large releasing">
+            {{else}}
+              <input type="button" name="taking"
+                value="Taking it"
+                class="btn btn-large taking">
+            {{/if}}
+          {{/if}}
         </dd>
 
       </div>
