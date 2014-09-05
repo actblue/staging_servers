@@ -20,17 +20,32 @@
         </dt>
 
         <dd class="span8">
-          {{#if currentUser}}
-            {{#if isInUse}}
-              <input type="button" name="releasing"
-                value="Releasing it"
-                class="btn btn-large releasing">
-            {{else}}
-              <input type="button" name="taking"
-                value="Taking it"
-                class="btn btn-large taking">
-            {{/if}}
-          {{/if}}
+          <div class="row-fluid">
+            <div class="span8">
+              {{#if isInUse}}
+                <p>
+                  I&rsquo;m in use by {{inUseByName}}
+                </p>
+              {{else}}
+                <p>
+                  I&rsquo;m free!
+                </p>
+              {{/if}}
+            </div>
+            <div class="span4">
+              {{#if currentUser}}
+                {{#if isInUse}}
+                  <input type="button" name="release"
+                    value="Release it"
+                    class="btn btn-large release">
+                {{else}}
+                  <input type="button" name="take"
+                    value="Take it"
+                    class="btn btn-large take">
+                {{/if}}
+              {{/if}}
+            </div>
+          </div>
         </dd>
 
       </div>

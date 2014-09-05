@@ -33,7 +33,8 @@ Meteor.methods({
     var id = Servers.insert({
       name: options.name,
       url: options.url,
-      isInUse: false
+      isInUse: false,
+      inUseBy: null
     });
     return id;
   },
@@ -42,14 +43,24 @@ Meteor.methods({
     if (! this.userId)
       throw new Meteor.Error(403, 'You must be logged in');
 
-    Servers.update(serverId, {$set: {isInUse: true}})
+    Servers.update(serverId, {
+      $set: {
+        isInUse: true,
+        inUseBy: this.userId
+      }
+    })
   },
 
   releaseIt: function(serverId) {
     if (! this.userId)
       throw new Meteor.Error(403, 'You must be logged in');
 
-    Servers.update(serverId, {$set: {isInUse: false}})
+    Servers.update(serverId, {
+      $set: {
+        isInUse: false,
+        inUseBy: null
+      }
+    })
   }
 });
 

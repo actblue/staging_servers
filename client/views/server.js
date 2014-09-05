@@ -13,6 +13,15 @@ Template.server.helpers({
 
   isInUseClass: function() {
     return this.isInUse ? 'in-use' : 'not-in-use';
+  },
+
+  inUseByName: function() {
+    var user = Meteor.users.findOne(this.inUseBy);
+    if (user.profile && user.profile.name) {
+      return user.profile.name;
+    } else {
+      return user.emails[0].address;
+    }
   }
 });
 
@@ -24,11 +33,11 @@ Template.server.events({
     return false;
   },
 
-  'click .taking': function() {
+  'click .take': function() {
     Meteor.call('takeIt', this._id);
   },
 
-  'click .releasing': function() {
+  'click .release': function() {
     Meteor.call('releaseIt', this._id);
   }
 });
