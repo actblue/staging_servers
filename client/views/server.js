@@ -17,7 +17,9 @@ Template.server.helpers({
 
   inUseByName: function() {
     var user = Meteor.users.findOne(this.inUseBy);
-    if (user.profile && user.profile.name) {
+    if (!user) {
+      return 'no one';
+    } else if (user.profile && user.profile.name) {
       return user.profile.name;
     } else {
       return user.emails[0].address;
