@@ -1,19 +1,25 @@
 <template name="serversList">
   <h1>Servers</h1>
 
-  {{#each servers}}
-    {{> server}}
+  {{#if loading}}
+    <p>Loading...</p>
   {{else}}
-    <p>
-      No servers have been created yet.
-    </p>
-  {{/each}}
 
-  {{#if currentUser}}
-    <div class="row-fluid">
-      <div class="span12 new_server">
-        <input type="button" value="New Server" class="btn new_server" />
+    {{#each servers}}
+      {{> server}}
+    {{else}}
+      <p>
+        No servers have been created yet.
+      </p>
+    {{/each}}
+
+    {{#if currentUser}}
+      <div class="row-fluid">
+        <div class="span12 new_server">
+          <input type="button" value="New Server" class="btn new_server" />
+        </div>
       </div>
-    </div>
+    {{/if}}
+
   {{/if}}
 </template>
