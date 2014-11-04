@@ -35,6 +35,21 @@ Template.server.events({
     return false;
   },
 
+  'keydown [type=text]': function(event) {
+    // ESC or ENTER
+    if (event.which === 27 || event.which === 13) {
+      event.preventDefault();
+      event.target.blur();
+    }
+  },
+
+  // Update the text of the item on keypress but throttle the event to ensure
+  // we don't flood the server with updates
+  // (handles the event at most once every 300ms)
+  'keyup input[type=text]': _.throttle(function(event) {
+    Meteor.call('updateDescription', this._id, event.target.value);
+  }, 300),
+
   'click .take': function() {
     Meteor.call('takeIt', this._id);
   },

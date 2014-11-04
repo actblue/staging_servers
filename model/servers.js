@@ -1,4 +1,4 @@
-/*global Meteor, check, Match */
+/*global Meteor, check, Match, console */
 
 Servers = new Meteor.Collection("servers");
 
@@ -48,7 +48,7 @@ Meteor.methods({
         isInUse: true,
         inUseBy: this.userId
       }
-    })
+    });
   },
 
   releaseIt: function(serverId) {
@@ -60,7 +60,18 @@ Meteor.methods({
         isInUse: false,
         inUseBy: null
       }
-    })
+    });
+  },
+
+  updateDescription: function(serverId, newDescription) {
+    if (! this.userId)
+      throw new Meteor.Error(403, 'You must be logged in');
+
+    Servers.update(serverId, {
+      $set: {
+        description: newDescription
+      }
+    });
   }
 });
 

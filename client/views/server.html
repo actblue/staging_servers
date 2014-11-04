@@ -22,14 +22,29 @@
         <dd class="span8">
           <div class="row-fluid">
             <div class="span8">
+              <div class="in-use">
+                {{#if isInUse}}
+                  <p>
+                    I&rsquo;m in use by {{inUseByName}}
+                  </p>
+                {{else}}
+                  <p>
+                    I&rsquo;m free!
+                  </p>
+                {{/if}}
+              </div>
               {{#if isInUse}}
-                <p>
-                  I&rsquo;m in use by {{inUseByName}}
-                </p>
-              {{else}}
-                <p>
-                  I&rsquo;m free!
-                </p>
+                <div class="description">
+                  <em>for:</em>&nbsp;&nbsp;
+                  {{#if currentUser}}
+                    <input type="text"
+                        name="description"
+                        value="{{description}}"
+                        placeholder="Add a description…">
+                  {{else}}
+                    {{description}}
+                  {{/if}}
+                </div>
               {{/if}}
             </div>
             <div class="span4">
