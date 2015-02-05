@@ -58,6 +58,7 @@ Meteor.methods({
     Servers.update(serverId, {
       $set: {
         isInUse: false,
+        description: null,
         inUseBy: null
       }
     });
