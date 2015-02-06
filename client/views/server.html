@@ -16,7 +16,10 @@
             </div>
           </a>
 
-          <a class="delete">Delete</a>
+          {{#if currentUser}}
+            {{> quickRemoveButton collection="Servers" _id=this._id
+                beforeRemove=beforeDeleteServer class="btn btn-small delete"}}
+          {{/if}}
         </dt>
 
         <dd class="span8">

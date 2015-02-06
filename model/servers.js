@@ -40,6 +40,8 @@ Servers.allow({
   },
 
   update: function() {
+    // We don't support updating servers at this point.
+    // Maybe later.
     return false;
   },
 
