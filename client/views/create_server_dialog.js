@@ -6,4 +6,14 @@ Template.createServerDialog.events({
   }
 });
 
-AutoForm.debug();
+AutoForm.hooks({
+  insertServerForm: {
+    after: {
+      insert: function(error) {
+        if (!error) {
+          Session.set('showCreateServerDialog', false);
+        }
+      }
+    }
+  }
+});
