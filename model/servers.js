@@ -2,6 +2,31 @@
 
 Servers = new Meteor.Collection("servers");
 
+Servers.attachSchema(new SimpleSchema({
+  name: {
+    type: String,
+    label: 'Name',
+    max: 100
+  },
+  url: {
+    type: String,
+    label: 'URL',
+    max: 200
+  },
+  isInUse: {
+    type: Boolean
+  },
+  inUseBy: {
+    type: String,
+    optional: true
+  },
+  description: {
+    type: String,
+    optional: true
+  }
+}));
+
+
 Servers.allow({
   insert: function() {
     return false;   // Use createServer method for inserts
