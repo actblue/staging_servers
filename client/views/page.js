@@ -1,6 +1,7 @@
 /*global Template, Session */
 
-Template.page.showCreateServerDialog = function () {
-  var showCreateServerDialog = Session.get("showCreateServerDialog");
-  return showCreateServerDialog;
-};
+Template.page.helpers({
+  showCreateServerDialog: function() {
+    return Session.get("showCreateServerDialog");
+  }
+});

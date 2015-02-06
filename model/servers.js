@@ -1,44 +1,57 @@
-/*global Meteor, check, Match, console */
+/*global Servers, Meteor, Mongo, SimpleSchema */
 
-Servers = new Meteor.Collection("servers");
+Servers = new Mongo.Collection("servers");
+
+Servers.attachSchema(new SimpleSchema({
+  name: {
+    type: String,
+    label: 'Name',
+    max: 100
+  },
+  url: {
+    type: String,
+    label: 'URL',
+    max: 200
+  },
+  isInUse: {
+    type: Boolean,
+    autoValue: function() {
+      if (this.isInsert) {
+        return false;
+      } else if (this.isUpsert) {
+        return { $setOnInsert: false };
+      }
+    }
+  },
+  inUseBy: {
+    type: String,
+    optional: true
+  },
+  description: {
+    type: String,
+    optional: true
+  }
+}));
 
 Servers.allow({
-  insert: function() {
-    return false;   // Use createServer method for inserts
+  insert: function(userId) {
+    // You can only add servers if you are logged in.
+    return !!userId;
   },
 
   update: function() {
+    // We don't support updating servers at this point.
+    // Maybe later.
     return false;
   },
 
-  remove: function(userId, server) {
-    // You can only remove servers if you are logged in
+  remove: function(userId) {
+    // You can only remove servers if you are logged in.
     return !!userId;
   }
 });
 
 Meteor.methods({
-  // options should include: name, url
-  createServer: function(options) {
-    console.log('createServer');
-
-    if (! this.userId)
-      throw new Meteor.Error(403, 'You must be logged in');
-
-    check(options, {
-      name: NonEmptyString,
-      url: NonEmptyString
-    });
-
-    var id = Servers.insert({
-      name: options.name,
-      url: options.url,
-      isInUse: false,
-      inUseBy: null
-    });
-    return id;
-  },
-
   takeIt: function(serverId) {
     if (! this.userId)
       throw new Meteor.Error(403, 'You must be logged in');
@@ -74,10 +87,4 @@ Meteor.methods({
       }
     });
   }
-});
-
-
-var NonEmptyString = Match.Where(function (x) {
-  check(x, String);
-  return x.length !== 0;
 });

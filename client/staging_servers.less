@@ -2,6 +2,12 @@ h1 {
   margin-bottom: 1em;
 }
 
+form {
+  .help-block {
+    color: red;
+  }
+}
+
 .container-fluid {
   margin-bottom: 2em;
 }
@@ -18,6 +24,10 @@ h1 {
 }
 
 .modal {
+  form {
+    margin-bottom: 0px;
+  }
+
   .btn {
     cursor: pointer;
   }
@@ -46,15 +56,19 @@ h1 {
     padding-top: 2em
   }
 
-  a.delete {
+  button.delete {
+    background: transparent;
+    border: 0px;
+    box-shadow: none;
     color: #999;
-    cursor: pointer;
     font-size: 0.7em;
+    padding: 0px;
+    text-shadow: none;
   }
 
   .description {
     input {
-      background: transparent;
+      background: none transparent;
       border: none;
       border-radius: 0;
       box-shadow: none;

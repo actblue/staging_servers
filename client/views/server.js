@@ -1,7 +1,7 @@
-/*global Template, Servers, window */
+/*global Template, Meteor, confirm, _ */
 
 Template.server.helpers({
-  fullUrl: function () {
+  fullUrl: function() {
     if (this.url) {
       if (this.url.match(/^http/)) {
         return this.url;
@@ -24,17 +24,19 @@ Template.server.helpers({
     } else {
       return user.emails[0].address;
     }
+  },
+
+  beforeDeleteServer: function() {
+    return function(collection, id) {
+      var server = collection.findOne(id);
+      if (confirm('Are you sure you want to delete server ' + server.name + '?')) {
+        this.remove();
+      }
+    };
   }
 });
 
 Template.server.events({
-  'click .delete': function() {
-    if (window.confirm('Are you sure you want to delete this server?')) {
-      Servers.remove(this._id);
-    }
-    return false;
-  },
-
   'keydown [type=text]': function(event) {
     // ESC or ENTER
     if (event.which === 27 || event.which === 13) {
