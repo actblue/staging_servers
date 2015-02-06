@@ -1,4 +1,4 @@
-/*global Meteor, Template, Session */
+/*global Template, Session, AutoForm */
 
 Template.createServerDialog.events({
   'click .cancel': function () {

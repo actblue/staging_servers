@@ -1,4 +1,4 @@
-/*global Meteor, check, Match, console */
+/*global Servers, Meteor, Mongo, SimpleSchema */
 
 Servers = new Mongo.Collection("servers");
 
@@ -45,7 +45,7 @@ Servers.allow({
     return false;
   },
 
-  remove: function(userId, server) {
+  remove: function(userId) {
     // You can only remove servers if you are logged in.
     return !!userId;
   }
@@ -87,10 +87,4 @@ Meteor.methods({
       }
     });
   }
-});
-
-
-var NonEmptyString = Match.Where(function (x) {
-  check(x, String);
-  return x.length !== 0;
 });

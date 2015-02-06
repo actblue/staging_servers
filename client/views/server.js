@@ -1,4 +1,4 @@
-/*global Template, Servers, window */
+/*global Template, Meteor, confirm, _ */
 
 Template.server.helpers({
   fullUrl: function () {
