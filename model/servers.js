@@ -27,6 +27,10 @@ Servers.attachSchema(new SimpleSchema({
     type: String,
     optional: true
   },
+  inUseSince: {
+    type: Date,
+    optional: true
+  },
   description: {
     type: String,
     optional: true
@@ -59,7 +63,8 @@ Meteor.methods({
     Servers.update(serverId, {
       $set: {
         isInUse: true,
-        inUseBy: this.userId
+        inUseBy: this.userId,
+        inUseSince: new Date()
       }
     });
   },
@@ -72,7 +77,8 @@ Meteor.methods({
       $set: {
         isInUse: false,
         description: null,
-        inUseBy: null
+        inUseBy: null,
+        inUseSince: null
       }
     });
   },

@@ -29,6 +29,9 @@
                 {{#if isInUse}}
                   <p>
                     I&rsquo;m in use by {{inUseByName}}
+                    {{#if inUseSince}}
+                      <br>since {{niceDate inUseSince}}
+                    {{/if}}
                   </p>
                 {{else}}
                   <p>

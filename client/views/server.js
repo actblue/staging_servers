@@ -26,6 +26,10 @@ Template.server.helpers({
     }
   },
 
+  niceDate: function(date) {
+    return date.toLocaleString();
+  },
+
   beforeDeleteServer: function() {
     return function(collection, id) {
       var server = collection.findOne(id);
