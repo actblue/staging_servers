@@ -21,6 +21,5 @@ Template.serversList.events({
 });
 
 var openCreateServerDialog = function () {
-  Session.set('createServerError', null);
   Session.set('showCreateServerDialog', true);
 };

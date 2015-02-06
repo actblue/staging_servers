@@ -1,26 +1,22 @@
 <template name="createServerDialog">
-  <div class="mask"> </div>
+  <div class="mask"></div>
   <div class="modal">
     <div class="modal-header">
       <button type="button" class="close cancel" data-dismiss="modal" aria-hidden="true">&times;</button>
       <h3>New Server</h3>
     </div>
 
-    <div class="modal-body">
-      {{#if error}}
-        <div class="alert alert-error">{{error}}</div>
-      {{/if}}
+    {{#autoForm collection="Servers" id="insertServerForm" type="insert"}}
+      <fieldset class="modal-body">
+        {{> afQuickField name="name"}}
+        {{> afQuickField name="url"}}
+      </fieldset>
 
-      <label for="name">Name</label>
-      <input type="text" name="name" class="name">
+      <div class="modal-footer">
+        <a class="btn cancel">Cancel</a>
+        <button type="submit" class="btn btn-primary">Create Server</button>
+      </div>
+    {{/autoForm}}
 
-      <label for="url">URL</label>
-      <input type="text" name="url" class="url">
-    </div>
-
-    <div class="modal-footer">
-      <a class="btn cancel">Cancel</a>
-      <a class="btn btn-primary save">Create Server</a>
-    </div>
   </div>
 </template>

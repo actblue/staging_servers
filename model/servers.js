@@ -14,7 +14,14 @@ Servers.attachSchema(new SimpleSchema({
     max: 200
   },
   isInUse: {
-    type: Boolean
+    type: Boolean,
+    autoValue: function() {
+      if (this.isInsert) {
+        return false;
+      } else if (this.isUpsert) {
+        return { $setOnInsert: false };
+      }
+    }
   },
   inUseBy: {
     type: String,
@@ -26,10 +33,10 @@ Servers.attachSchema(new SimpleSchema({
   }
 }));
 
-
 Servers.allow({
-  insert: function() {
-    return false;   // Use createServer method for inserts
+  insert: function(userId) {
+    // You can only add servers if you are logged in.
+    return !!userId;
   },
 
   update: function() {
@@ -37,33 +44,12 @@ Servers.allow({
   },
 
   remove: function(userId, server) {
-    // You can only remove servers if you are logged in
+    // You can only remove servers if you are logged in.
     return !!userId;
   }
 });
 
 Meteor.methods({
-  // options should include: name, url
-  createServer: function(options) {
-    console.log('createServer');
-
-    if (! this.userId)
-      throw new Meteor.Error(403, 'You must be logged in');
-
-    check(options, {
-      name: NonEmptyString,
-      url: NonEmptyString
-    });
-
-    var id = Servers.insert({
-      name: options.name,
-      url: options.url,
-      isInUse: false,
-      inUseBy: null
-    });
-    return id;
-  },
-
   takeIt: function(serverId) {
     if (! this.userId)
       throw new Meteor.Error(403, 'You must be logged in');
