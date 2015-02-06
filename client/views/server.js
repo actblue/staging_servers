@@ -1,7 +1,7 @@
 /*global Template, Meteor, confirm, _ */
 
 Template.server.helpers({
-  fullUrl: function () {
+  fullUrl: function() {
     if (this.url) {
       if (this.url.match(/^http/)) {
         return this.url;

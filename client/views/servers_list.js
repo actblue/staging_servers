@@ -2,13 +2,15 @@
 
 var serversHandle = Meteor.subscribe('servers');
 
-Template.serversList.servers = function() {
-  return Servers.find({}, {sort: {name: 1}});
-};
+Template.serversList.helpers({
+  servers: function() {
+    return Servers.find({}, {sort: {name: 1}});
+  },
 
-Template.serversList.loading = function() {
-  return !serversHandle.ready();
-};
+  loading: function() {
+    return !serversHandle.ready();
+  }
+});
 
 Template.serversList.events({
   'click .new_server': function() {
