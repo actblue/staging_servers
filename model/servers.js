@@ -1,6 +1,6 @@
 /*global Meteor, check, Match, console */
 
-Servers = new Meteor.Collection("servers");
+Servers = new Mongo.Collection("servers");
 
 Servers.attachSchema(new SimpleSchema({
   name: {
