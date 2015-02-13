@@ -60,7 +60,7 @@ form {
     background: transparent;
     border: 0px;
     box-shadow: none;
-    color: #999;
+    color: #777;
     font-size: 0.7em;
     padding: 0px;
     text-shadow: none;
@@ -75,6 +75,16 @@ form {
       color: #333;
       margin-bottom: 2px;
       padding: 0px;
+
+      &::-webkit-input-placeholder {
+        color: #8CE4FF;
+      }
+      &:-moz-placeholder {
+        color: #8CE4FF;
+      }
+      &:-ms-input-placeholder {
+        color: #8CE4FF;
+      }
     }
   }
 }
