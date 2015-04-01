@@ -1,7 +1,7 @@
 /*global Template, Session, AutoForm */
 
 Template.createServerDialog.events({
-  'click .cancel': function () {
+  'click .cancel, click .mask': function () {
     Session.set('showCreateServerDialog', false);
   }
 });
