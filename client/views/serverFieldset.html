@@ -1,6 +1,14 @@
 <template name="serverFieldset">
-  <fieldset class="modal-body">
-    {{> afQuickField name="name"}}
-    {{> afQuickField name="url"}}
+  <fieldset class="modal-body row-fluid">
+    <div class="span6">
+      {{> afQuickField name="name"}}
+      {{> afQuickField name="url"}}
+    </div>
+
+    <div class="span6">
+      {{> afQuickField name="notes"
+        rows=5
+        placeholder="Type of server, software versions, etc."}}
+    </div>
   </fieldset>
 </template>

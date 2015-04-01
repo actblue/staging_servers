@@ -13,6 +13,11 @@ Servers.attachSchema(new SimpleSchema({
     label: 'URL',
     max: 200
   },
+  notes: {
+    type: String,
+    label: 'Notes',
+    optional: true
+  },
   isInUse: {
     type: Boolean,
     autoValue: function() {

@@ -17,6 +17,13 @@
             </div>
           </a>
 
+          {{#if hasNotes}}
+            <div class="notes">
+              <em>Notes:</em>&nbsp;&nbsp;
+              {{notes}}
+            </div>
+          {{/if}}
+
           {{#if currentUser}}
             {{> quickRemoveButton collection="Servers" _id=this._id
                 beforeRemove=beforeDeleteServer class="btn btn-small delete"}}

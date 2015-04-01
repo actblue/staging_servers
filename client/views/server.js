@@ -30,6 +30,10 @@ Template.server.helpers({
     return date.toLocaleString();
   },
 
+  hasNotes: function() {
+    return !!this.notes;
+  },
+
   beforeDeleteServer: function() {
     return function(collection, id) {
       var server = collection.findOne(id);
