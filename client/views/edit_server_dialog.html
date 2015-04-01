@@ -1,0 +1,19 @@
+<template name="editServerDialog">
+  <div class="mask edit-sever-dialog"></div>
+  <div class="modal edit-sever-dialog">
+    <div class="modal-header">
+      <button type="button" class="close cancel" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>Edit Server</h3>
+    </div>
+
+    {{#autoForm collection="Servers" doc=editingServer id="editServerForm" type="update"}}
+      {{> serverFieldset}}
+
+      <div class="modal-footer">
+        <a class="btn cancel">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update Server</button>
+      </div>
+    {{/autoForm}}
+
+  </div>
+</template>

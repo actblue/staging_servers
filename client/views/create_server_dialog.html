@@ -7,10 +7,7 @@
     </div>
 
     {{#autoForm collection="Servers" id="insertServerForm" type="insert"}}
-      <fieldset class="modal-body">
-        {{> afQuickField name="name"}}
-        {{> afQuickField name="url"}}
-      </fieldset>
+      {{> serverFieldset}}
 
       <div class="modal-footer">
         <a class="btn cancel">Cancel</a>

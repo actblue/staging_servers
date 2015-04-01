@@ -1,4 +1,4 @@
-/*global Template, Meteor, confirm, _ */
+/*global Template, Meteor, Session, confirm, _ */
 
 Template.server.helpers({
   fullUrl: function() {
@@ -62,5 +62,17 @@ Template.server.events({
 
   'click .release': function() {
     Meteor.call('releaseIt', this._id);
+  },
+
+  'click .server h2.name span.edit': function() {
+    if (! Meteor.userId()) {
+      // must be logged in to create servers
+      return;
+    }
+    openEditServerDialog(this._id);
   }
 });
+
+var openEditServerDialog = function(id) {
+  Session.set('editingServerId', id);
+};

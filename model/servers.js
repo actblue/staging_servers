@@ -43,10 +43,9 @@ Servers.allow({
     return !!userId;
   },
 
-  update: function() {
-    // We don't support updating servers at this point.
-    // Maybe later.
-    return false;
+  update: function(userId) {
+    // You can only edit servers if you are logged in.
+    return !!userId;
   },
 
   remove: function(userId) {

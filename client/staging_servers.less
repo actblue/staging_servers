@@ -49,6 +49,21 @@ form {
     border-left-width: 20px;
   }
 
+  h2.name {
+    span.edit {
+      display: none;
+      cursor: pointer;
+
+      i {
+        vertical-align: 0.25em;
+      }
+    }
+
+    &:hover span.edit {
+      display: inline;
+    }
+  }
+
   dt, dd {
     display: block;
     padding: 0.2em 1em 1.2em;
