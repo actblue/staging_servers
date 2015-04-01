@@ -1,3 +1,5 @@
+/*global Meteor, Servers, console */
+
 Meteor.publish("servers", function () {
   return Servers.find({});
 });
