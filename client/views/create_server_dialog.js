@@ -1,7 +1,7 @@
 /*global Template, Session, AutoForm */
 
 Template.createServerDialog.events({
-  'click .cancel, click .mask': function () {
+  'click .create-sever-dialog .cancel, click .create-sever-dialog.mask': function () {
     Session.set('showCreateServerDialog', false);
   }
 });
