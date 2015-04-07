@@ -1,10 +1,5 @@
 <template name="page">
-  {{#if showCreateServerDialog}}
-    {{> createServerDialog}}
-  {{/if}}
-  {{#if showEditServerDialog}}
-    {{> editServerDialog}}
-  {{/if}}
+  {{> modals}}
 
   <div class="container-fluid">
     <div class="row-fluid">

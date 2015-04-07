@@ -1,6 +1,6 @@
 /*global Template, Session */
 
-Template.page.helpers({
+Template.modals.helpers({
   showCreateServerDialog: function() {
     return Session.get('showCreateServerDialog');
   },
