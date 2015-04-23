@@ -2,10 +2,12 @@ Servers.attachSchema new SimpleSchema(
   name:
     type: String
     label: 'Name'
+    unique: true
     max: 100
   url:
     type: String
     label: 'URL'
+    unique: true
     max: 200
   notes:
     type: String
