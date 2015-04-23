@@ -2,7 +2,13 @@
   <fieldset class="modal-body row-fluid">
     <div class="span6">
       {{> afQuickField name="name"}}
-      {{> afQuickField name="url"}}
+
+      {{#if hasDefaultUrlPattern}}
+        {{> afQuickField name="url" value=defaultUrl readonly=true}}
+        <small>Defaults to URL pattern.</small>
+      {{else}}
+        {{> afQuickField name="url"}}
+      {{/if}}
     </div>
 
     <div class="span6">
