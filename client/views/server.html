@@ -32,7 +32,12 @@
 
         <dd class="span8">
           <div class="row-fluid">
-            <div class="span8">
+            <div class="span1">
+              {{#if isInUse}}
+                <img src="{{inUseByUserImage}}" class="avatar" />
+              {{/if}}
+            </div>
+            <div class="span7">
               <div class="in-use">
                 {{#if isInUse}}
                   <p>

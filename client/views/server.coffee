@@ -10,6 +10,10 @@ Template.server.helpers
   isInUseClass: ->
     if @isInUse then 'in-use' else 'not-in-use'
 
+  inUseByUserImage: ->
+    user = Meteor.users.findOne @inUseBy
+    Gravatar.imageUrl Gravatar.hash user.emails[0].address
+
   inUseByName: ->
     user = Meteor.users.findOne @inUseBy
     unless user
