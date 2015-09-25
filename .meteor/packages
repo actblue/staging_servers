@@ -15,3 +15,4 @@ coffeescript
 mike:mocha
 jparker:gravatar
 standard-minifiers
+ecmascript
