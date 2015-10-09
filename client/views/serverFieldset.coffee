@@ -7,6 +7,7 @@ Template.serverFieldset.helpers
     if Meteor.settings?.public?.urlPattern?
       urlPattern = Meteor.settings.public.urlPattern
       name = AutoForm.getFieldValue 'name'
-      urlPattern.replace '%', if name then name else '%'
+      replacementString = if name then name else '%'
+      urlPattern.replace '%', replacementString
     else
       ''
