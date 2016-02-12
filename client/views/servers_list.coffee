@@ -1,5 +1,3 @@
-serversHandle = Meteor.subscribe 'servers'
-
 Template.serversList.helpers
 
   servers: ->
@@ -9,9 +7,6 @@ Template.serversList.helpers
       sort:
         name: 1
     )
-
-  loading: ->
-    !serversHandle.ready()
 
 
 Template.serversList.events
