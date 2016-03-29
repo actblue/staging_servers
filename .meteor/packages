@@ -14,5 +14,6 @@ aldeed:delete-button
 coffeescript
 mike:mocha
 jparker:gravatar
-standard-minifiers
 ecmascript
+standard-minifier-css
+standard-minifier-js
