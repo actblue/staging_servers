@@ -1,7 +1,7 @@
 <template name="serverFieldset">
   <fieldset class="modal-body row-fluid">
     <div class="span6">
-      {{> afQuickField name="name"}}
+      {{> afQuickField name="name" autofocus=""}}
 
       {{#if hasDefaultUrlPattern}}
         {{> afQuickField name="url" value=defaultUrl readonly=true}}
