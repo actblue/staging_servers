@@ -1,22 +1,29 @@
 Template.createServerDialog.events({
-
   'click .create-sever-dialog .cancel, click .create-sever-dialog.mask'() {
-    return Session.set('showCreateServerDialog', false);
-  }
+    closeCreateServerDialog();
+  },
 
+  'keydown [type=text]'(event) {
+    // ESC
+    if (event.which == 27) {
+      event.preventDefault();
+      closeCreateServerDialog();
+    }
+  }
 });
 
-
 AutoForm.hooks({
-
   insertServerForm: {
     after: {
       insert(error) {
         if (!error) {
-          return Session.set('showCreateServerDialog', false);
+          closeCreateServerDialog();
         }
       }
     }
   }
-
 });
+
+closeCreateServerDialog = (id) => {
+  Session.set('showCreateServerDialog', false);
+};
