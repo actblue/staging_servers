@@ -1,5 +1,4 @@
 Template.serverFieldset.helpers({
-
   hasDefaultUrlPattern() {
     return Meteor.settings &&
       Meteor.settings.public &&
