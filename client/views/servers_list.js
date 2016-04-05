@@ -9,7 +9,7 @@ Template.serversList.events({
     if (!Meteor.userId()) {
       return;
     }
-    return openCreateServerDialog();
+    openCreateServerDialog();
   }
 });
 

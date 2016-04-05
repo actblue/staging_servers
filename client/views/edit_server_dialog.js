@@ -7,7 +7,7 @@ Template.editServerDialog.helpers({
 
 Template.editServerDialog.events({
   'click .edit-sever-dialog .cancel, click .edit-sever-dialog.mask'() {
-    return Session.set('editingServerId', null);
+    Session.set('editingServerId', null);
   }
 });
 
@@ -17,7 +17,7 @@ AutoForm.hooks({
     after: {
       update(error) {
         if (!error) {
-          return Session.set('editingServerId', null);
+          Session.set('editingServerId', null);
         }
       }
     }
