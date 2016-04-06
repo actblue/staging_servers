@@ -43,7 +43,7 @@ Template.server.helpers({
   beforeDeleteServer() {
     return function(collection, id) {
       const server = collection.findOne(id);
-      if (confirm('Are you sure you want to delete server ' + server.name + '?')) {
+      if (confirm(`Are you sure you want to delete server ${server.name}?`)) {
         return this.remove();
       }
     };
