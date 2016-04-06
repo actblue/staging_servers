@@ -10,7 +10,12 @@
               {{name}}
             </a>
             {{#if currentUser}}
-              <span class="edit"><i class="icon-pencil"></i></span>
+              <span class="buttons">
+                <span class="edit"><i class="icon-pencil"></i></span>
+                {{#quickRemoveButton collection="Servers" _id=this._id beforeRemove=beforeDeleteServer class="delete"}}
+                  <i class="icon-trash"></i>
+                {{/quickRemoveButton}}
+              </span>
             {{/if}}
           </h2>
           <a href="{{fullUrl}}" target="_blank">
@@ -24,11 +29,6 @@
               <em>Notes:</em>&nbsp;&nbsp;
               {{notes}}
             </div>
-          {{/if}}
-
-          {{#if currentUser}}
-            {{> quickRemoveButton collection="Servers" _id=this._id
-                beforeRemove=beforeDeleteServer class="btn btn-small delete"}}
           {{/if}}
         </dt>
 

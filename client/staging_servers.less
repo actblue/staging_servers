@@ -68,16 +68,32 @@ form {
   }
 
   h2.name {
-    span.edit {
+    span.buttons {
       display: none;
-      cursor: pointer;
+      margin-left: 0.25em;
 
-      i {
-        vertical-align: 0.25em;
+      span.edit {
+        cursor: pointer;
+
+        i {
+          vertical-align: 0.25em;
+        }
+      }
+
+      button.delete {
+        background: transparent;
+        border: 0px;
+        box-shadow: none;
+        color: #777;
+        font-size: 0.7em;
+        padding: 0px;
+
+        i {
+          vertical-align: 0.55em;
+        }
       }
     }
-
-    &:hover span.edit {
+    &:hover span.buttons {
       display: inline;
     }
   }
@@ -86,16 +102,6 @@ form {
     font-weight: normal;
     line-height: 1.2em;
     margin: 0.5em 0;
-  }
-
-  button.delete {
-    background: transparent;
-    border: 0px;
-    box-shadow: none;
-    color: #777;
-    font-size: 0.7em;
-    padding: 0px;
-    text-shadow: none;
   }
 
   .description {
