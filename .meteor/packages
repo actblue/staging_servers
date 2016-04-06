@@ -12,5 +12,6 @@ aldeed:autoform
 aldeed:collection2
 aldeed:delete-button
 jparker:gravatar
-standard-minifiers
 ecmascript
+standard-minifier-css
+standard-minifier-js
