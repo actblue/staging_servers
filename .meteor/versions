@@ -50,7 +50,7 @@ less@2.5.7
 livedata@1.0.17
 localstorage@1.0.8
 logging@1.0.11
-mdg:validation-error@0.4.0
+mdg:validation-error@0.5.1
 meteor@1.1.13
 meteor-platform@1.2.5
 minifier-css@1.1.10
@@ -59,7 +59,7 @@ minimongo@1.0.13
 mobile-status-bar@1.0.11
 modules@0.5.2
 modules-runtime@0.6.2
-momentjs:moment@2.11.2
+momentjs:moment@2.12.0
 mongo@1.1.6
 mongo-id@1.0.3
 npm-bcrypt@0.7.8_2
