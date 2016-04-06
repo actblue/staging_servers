@@ -52,7 +52,7 @@ Template.server.helpers({
 
 
 Template.server.events({
-  'keydown [type=text]': (event) => {
+  'keydown [type=text]'(event) {
     // ESC or ENTER
     if (event.which == 27 || event.which == 13) {
       event.preventDefault();
@@ -67,15 +67,15 @@ Template.server.events({
     Meteor.call('updateDescription', this._id, event.target.value);
   }), 300),
 
-  'click .take': function() {
+  'click .take'() {
     Meteor.call('takeIt', this._id);
   },
 
-  'click .release': function() {
+  'click .release'() {
     Meteor.call('releaseIt', this._id);
   },
 
-  'click .server h2.name span.edit': function() {
+  'click .server h2.name span.edit'() {
     // must be logged in to create servers
     if (!Meteor.userId()) { return; }
 
