@@ -9,7 +9,9 @@
             <a href="{{fullUrl}}" target="_blank">
               {{name}}
             </a>
-            <span class="edit"><i class="icon-pencil"></i></span>
+            {{#if currentUser}}
+              <span class="edit"><i class="icon-pencil"></i></span>
+            {{/if}}
           </h2>
           <a href="{{fullUrl}}" target="_blank">
             <div class="url">
